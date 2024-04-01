@@ -46,13 +46,15 @@ const Nav = () => {
             </button>
 
             <Link href="/profile">
-              <Image
-                src={session?.user.image}
-                width={37}
-                height={37}
-                className="rounded-full"
-                alt="profile"
-              />
+              {session?.user?.image && (
+                <Image
+                  src={session?.user.image}
+                  width={37}
+                  height={37}
+                  className="rounded-full"
+                  alt="profile"
+                />
+              )}
             </Link>
           </div>
         ) : (
@@ -78,15 +80,16 @@ const Nav = () => {
       <div className="sm:hidden flex relative">
         {session?.user ? (
           <div className="flex">
-            <Image
-              src={session?.user.image}
-              width={37}
-              height={37}
-              className="rounded-full"
-              alt="profile"
-              onClick={() => setToggleDropdown(!toggleDropdown)}
-            />
-
+            {session?.user?.image && (
+              <Image
+                src={session?.user.image}
+                width={37}
+                height={37}
+                className="rounded-full"
+                alt="profile"
+                onClick={() => setToggleDropdown(!toggleDropdown)}
+              />
+            )}
             {toggleDropdown && (
               <div className="dropdown">
                 <Link
